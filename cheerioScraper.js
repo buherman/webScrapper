@@ -2,6 +2,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 const formatCurrency = require('format-currency');
 var numeral = require('numeral');
+var phantom = require('node-phantom');
+const toCSV = require('array-to-csv');
+
+
 
 var FILE_NAME = __filename.split(/[\\/]/).pop(); 
 
@@ -24,13 +28,24 @@ module.exports.cheerioFunction = function (url){
       
         var $ = cheerio.load(body);
         
-        /*
-        $('div[class="masonry-grid with-button is-preloading"]').each(function(){
-            test = $(this).find('div').attr('data-title');
         
-            console.log(test);
-        })
-        */
+        //notice that there's lazy loading - Scroll to get to other page.
+        var loadMore = $('div[id="loadMoreAds"]');
+        var countLoadMore = 1;
+        
+        if (loadMore === null){
+            
+        }else{
+            
+            countLoadMore= countLoadMore+1;
+            console.log('loadMore Exist : ' +countLoadMore);
+            
+            
+            
+            
+            $=cheerio.load(body);
+        }
+        
         
         var rawList = [];
         $('div[class="masonry-grid with-button is-preloading"]').find('div').each(function(index,element){
@@ -39,43 +54,21 @@ module.exports.cheerioFunction = function (url){
             
             
             if (carName === 'undefined' || carName === null || carPrice === null || carPrice === '') {
-                console.log('empty');
+                //console.log('empty'); Remove the "Undefined".
             }else{
                 rawList.push(carName,carPrice.trim().replace('Rp. ','').replace('.',','));
             }
         })
         
-        console.log('weeee');
         
+        //Clean Up the rawList.
         var uniqueList = rawList.filter(function(elem, pos){
             return rawList.indexOf(elem) == pos;
         })
         console.dir(uniqueList);
-        
-        
-        //class category
-        
-        //trus di click icon down abs
-        //get value_
-        
-        //get h3. with name ""
-    
-    
-    //var jobTitle = $('#job-title-scrape');
-    //var jobTitleText = jobTitle.text();
-    
-    // $('#job-title-scrape').filter(function(){
-    //     var jobTitle = $(this);
-    //     jobTitleText = jobTitle.text();
-    // })
-    
-    
-    
-    
-    
-    // console.log('cheerio : '+jobTitleText);
-    
-    // return 'xx';
+       
+       //transform to CSV
+       
     
     })
 }

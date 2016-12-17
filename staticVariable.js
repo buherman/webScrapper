@@ -1,7 +1,10 @@
 module.exports.PORT = 8000;
 
-module.exports.MAIN_URL_OLX = 'https://www.olx.co.id/mobil/bekas/audi?longitude=&latitude=&coordinate=&distance=&current_location=0&location_filter=&sort=created_at%3Adesc&search%5Bfilter_both_price%5D%5Bfrom%5D=&search%5Bfilter_both_price%5D%5Bto%5D=';
+module.exports.MAIN_URL_OLX_AUDI = 'https://www.olx.co.id/mobil/bekas/audi/';
+//Audi
 
 
+module.exports.MAIN_URL_OLX_BEKAS = 'https://www.olx.co.id/mobil/bekas';
+//All Mobile Bekas.
 
 //'http://olx.co.id/mobil/bekas/'; //new https://www.olx.co.id/mobil/bekas

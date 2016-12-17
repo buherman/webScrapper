@@ -19,9 +19,9 @@ var cheerio = require('./cheerioScraper');
 //code starts here-----------------------------------------------------
 
 //scrap OLX with Cheerio
-console.log(FILE_NAME+' : Start Scrap : '+sV.MAIN_URL_OLX+' with Cheerio.');
+console.log(FILE_NAME+' : Start Scrap : '+sV.MAIN_URL_OLX_AUDI+' with Cheerio.');
 
-var jobtitleText = cheerio.cheerioFunction(sV.MAIN_URL_OLX);
+var jobtitleText = cheerio.cheerioFunction(sV.MAIN_URL_OLX_AUDI);
 
 console.log(FILE_NAME+' : scrapper : '+jobtitleText);
 

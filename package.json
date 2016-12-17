@@ -23,5 +23,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christian C.Santoso",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccs1910/webScrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccs1910/webScrapper/issues"
+  },
+  "homepage": "https://github.com/ccs1910/webScrapper#readme"
 }
