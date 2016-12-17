@@ -1,0 +1,27 @@
+{
+  "name": "web-scraper",
+  "version": "1.0.0",
+  "description": "web scraping",
+  "main": "scraperServer.js",
+  "dependencies": {
+    "async": "^0.2.10",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "format-currency": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "gurkha": "^2.0.3",
+    "handlebars": "^4.0.6",
+    "node-phantom": "^0.2.5",
+    "path": "^0.12.7",
+    "request": "^2.78.0",
+    "socket.io": "^0.9.17",
+    "x-ray": "^2.3.1",
+    "yakuza": "^1.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian C.Santoso",
+  "license": "ISC"
+}
