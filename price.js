@@ -1,7 +1,7 @@
 /*
  * This script scrapes used Toyota cars in J@@lo.com within DKI Jakarta region.
  * Only scrapes Fortuner models at the moment, but can be easily configured by
- * modifying the `sets` constant.
+ * modifying the `groups` constant.
  *
  * Usage:
  *
@@ -15,19 +15,19 @@ const console = require('console');
 const Xray = require('x-ray');
 const x = Xray();
 
-// List of sets that we will scrape. Each set will produce an output file.
-const sets = [
+// List of groups that we will scrape. Each group will produce an output file.
+const groups = [
   { model: 'Fortuner', transmission: 'Manual' },
   { model: 'Fortuner', transmission: 'Automatic' }
 ];
 
-// Scrape each set.
-const n = sets.length;
+// Scrape each group.
+const n = groups.length;
 for (var i = 0; i < n; i++ ) {
-  scrapeOneSet(sets[i].model, sets[i].transmission);
+  scrapeOneGroup(groups[i].model, groups[i].transmission);
 }
 
-function scrapeOneSet(model, transmission) {
+function scrapeOneGroup(model, transmission) {
   console.log(model, transmission);
 
   var targetUrl = 'https://www.jualo.com/mobil-toyota-bekas/dki-jakarta';
@@ -41,14 +41,14 @@ function scrapeOneSet(model, transmission) {
   const nextPageSelector = '.next_page@href';
   x(targetUrl, scope, selector)(xRayDone).paginate(nextPageSelector);
 
-  function xRayDone(err, rawSet) {
+  function xRayDone(err, groupRaw) {
     if (err) {
       console.error(err);
       return;
     }
 
   	// Output processing.
-    const finalSet = rawSet.map(function (elem) {
+    const groupFinal = groupRaw.map(function (elem) {
       return {
         // Remove whitespace characters and convert to lower case.
         title: elem.title.trim().toLowerCase(),
@@ -59,17 +59,17 @@ function scrapeOneSet(model, transmission) {
 
     // Save results to a CSV file.
     var buffer = '';
-    const n = finalSet.length;
+    const n = groupFinal.length;
     for (var i = 0; i < n; i++) {
-      buffer += `"${finalSet[i].price}","${finalSet[i].title}"\n`;
+      buffer += `"${groupFinal[i].price}","${groupFinal[i].title}"\n`;
     }
-    const fileName = `set-${model}-${transmission}.csv`;
+    const fileName = `group-${model}-${transmission}.csv`;
     fs.writeFile(fileName, buffer, function (err) {
       if (err) {
         console.error(err);
 	    }
     });
 
-  } // end of `function xRayDone(err, setRaw)`
+  } // end of `function xRayDone(err, groupRaw)`
 
-} // end of `function scrapeOneSet(model, transmission)`
+} // end of `function scrapeOneGroup(model, transmission)`
