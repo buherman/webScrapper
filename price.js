@@ -47,29 +47,60 @@ function scrapeOneGroup(model, transmission) {
       return;
     }
 
-  	// Output processing.
-    const groupFinal = groupRaw.map(function (elem) {
-      return {
-        // Remove whitespace characters and convert to lower case.
-        title: elem.title.trim().toLowerCase(),
-        // Remove non-numeric characters.
-        price: elem.price.replace(/\D/g, '')
-      }
-    });
+    // Processing stage 1: formatting.
+    const groupV1 = groupRaw.map(stageOne);
+
+    // Processing stage 2: guessing year.
+    const groupFinal = groupV1.map(stageTwo);
 
     // Save results to a CSV file.
     var buffer = '';
     const n = groupFinal.length;
     for (var i = 0; i < n; i++) {
-      buffer += `"${groupFinal[i].price}","${groupFinal[i].title}"\n`;
+      buffer += `"${groupFinal[i].price}",`;
+      buffer += `"${groupFinal[i].yearGuess}",`;
+      buffer += `"${groupFinal[i].title}"\n`;
     }
     const fileName = `group-${model}-${transmission}.csv`;
     fs.writeFile(fileName, buffer, function (err) {
       if (err) {
         console.error(err);
-	    }
+      }
     });
 
   } // end of `function xRayDone(err, groupRaw)`
 
 } // end of `function scrapeOneGroup(model, transmission)`
+
+// Processing stage 1: formatting.
+function stageOne(elem) {
+  return {
+    // Remove whitespace characters and convert to lower case.
+    title: elem.title.trim().toLowerCase(),
+    // Remove non-numeric characters.
+    price: elem.price.replace(/\D/g, '')
+  }
+}
+
+// Processing stage 2: guessing year.
+const yearKw = [ // Keywords for year.
+  '2000', '2001', '2002', '2003', '2004',
+  '2005', '2006', '2007', '2008', '2009',
+  '2010', '2011', '2012', '2013', '2014',
+  '2015', '2016'
+];
+const nYearKw = yearKw.length;
+function stageTwo(elem) {
+  var yearGuess = '';
+  for (var i = 0; i < nYearKw; i++) {
+    if (elem.title.indexOf(yearKw[i]) >= 0) {
+      yearGuess = yearKw[i];
+      break;
+    }
+  }
+  return {
+      title: elem.title,
+      price: elem.price,
+      yearGuess: yearGuess
+  }
+}
