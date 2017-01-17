@@ -12,6 +12,7 @@
     "fs": "^0.0.1-security",
     "gurkha": "^2.0.3",
     "handlebars": "^4.0.6",
+    "jsonfile": "^2.4.0",
     "node-phantom": "^0.2.5",
     "numeral": "^2.0.3",
     "path": "^0.12.7",

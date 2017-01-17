@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * This script scrapes used Toyota cars in J@@lo.com within DKI Jakarta region.
  * Only scrapes Fortuner models at the moment, but can be easily configured by
@@ -12,8 +14,11 @@
 
 const fs = require('fs');
 const console = require('console');
+const jsonfile = require('jsonfile');
 const Xray = require('x-ray');
 const x = Xray();
+
+
 
 // List of groups that we will scrape. Each group will produce an output file.
 const groups = [
@@ -27,8 +32,33 @@ for (var i = 0; i < n; i++ ) {
   scrapeOneGroup(groups[i].model, groups[i].transmission);
 }
 
+
+
 function scrapeOneGroup(model, transmission) {
   console.log(model, transmission);
+
+  // Attempt to load cached results from previous execution.
+  const cacheFileName = `group-${model}-${transmission}-v1.json`;
+  var cacheGroupV1 = null;
+  try {
+    cacheGroupV1 = jsonfile.readFileSync(cacheFileName);
+  } catch (e) {
+  } finally {
+  }
+  if (cacheGroupV1) {
+    console.log(`Using cached results from ${cacheFileName}`);
+
+    // Processing stage 2: guessing year.
+    const groupFinal = cacheGroupV1.map(stageTwo);
+
+    // Save results to a CSV file.
+    const fileName = `group-${model}-${transmission}.csv`;
+    outputStage(groupFinal, fileName);
+
+    return;
+  }
+
+  // Start of flow without cache.
 
   var targetUrl = 'https://www.jualo.com/mobil-toyota-bekas/dki-jakarta';
   targetUrl += `?filter[13]=${transmission}`;
@@ -49,28 +79,22 @@ function scrapeOneGroup(model, transmission) {
 
     // Processing stage 1: formatting.
     const groupV1 = groupRaw.map(stageOne);
+    // Dump results to JSON, which may be used as cache by subsequent scrape.
+    const stage1FileName = `group-${model}-${transmission}-v1.json`;
+    fs.writeFile(stage1FileName, JSON.stringify(groupV1, null, 2), null);
 
     // Processing stage 2: guessing year.
     const groupFinal = groupV1.map(stageTwo);
 
     // Save results to a CSV file.
-    var buffer = '';
-    const n = groupFinal.length;
-    for (var i = 0; i < n; i++) {
-      buffer += `"${groupFinal[i].price}",`;
-      buffer += `"${groupFinal[i].yearGuess}",`;
-      buffer += `"${groupFinal[i].title}"\n`;
-    }
     const fileName = `group-${model}-${transmission}.csv`;
-    fs.writeFile(fileName, buffer, function (err) {
-      if (err) {
-        console.error(err);
-      }
-    });
+    outputStage(groupFinal, fileName);
 
   } // end of `function xRayDone(err, groupRaw)`
 
 } // end of `function scrapeOneGroup(model, transmission)`
+
+
 
 // Processing stage 1: formatting.
 function stageOne(elem) {
@@ -82,15 +106,17 @@ function stageOne(elem) {
   }
 }
 
+
+
 // Processing stage 2: guessing year.
-const yearKw = [ // Keywords for year.
-  '2000', '2001', '2002', '2003', '2004',
-  '2005', '2006', '2007', '2008', '2009',
-  '2010', '2011', '2012', '2013', '2014',
-  '2015', '2016'
-];
-const nYearKw = yearKw.length;
 function stageTwo(elem) {
+  const yearKw = [ // Keywords for year.
+    '2000', '2001', '2002', '2003', '2004',
+    '2005', '2006', '2007', '2008', '2009',
+    '2010', '2011', '2012', '2013', '2014',
+    '2015', '2016'
+  ];
+  const nYearKw = yearKw.length;
   var yearGuess = '';
   for (var i = 0; i < nYearKw; i++) {
     if (elem.title.indexOf(yearKw[i]) >= 0) {
@@ -103,4 +129,22 @@ function stageTwo(elem) {
       price: elem.price,
       yearGuess: yearGuess
   }
+}
+
+
+
+// Write output.
+function outputStage(group, fileName) {
+  var buffer = '';
+  const n = group.length;
+  for (var i = 0; i < n; i++) {
+    buffer += `"${group[i].price}",`;
+    buffer += `"${group[i].yearGuess}",`;
+    buffer += `"${group[i].title}"\n`;
+  }
+  fs.writeFile(fileName, buffer, function (err) {
+    if (err) {
+      console.error(err);
+    }
+  });
 }
