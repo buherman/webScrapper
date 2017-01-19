@@ -1,0 +1,154 @@
+[
+  {
+    "name": "daihatsu",
+    "url": "http://www.autocarprices.com/daihatsu_car_price.php",
+    "taxonomy": {
+      "Ayla": [ "D M/T", "M M/T", "X A/T", "X M/T" ],
+      "Ceria": [ "KL", "KL Plus", "KX", "KX-R", "New KL", "New KL Plus", "New KX" ],
+      "Gran Max" : [ "1.3 D", "1.3 F", "1.5 D", "1.5 D Optima", "1.5 F" ],
+      "Luxio" : [ "D", "M", "M Elite", "X A/T", "X M/T", "X Ultimate M/T" ],
+      "Sirion" : [ "D", "M A/T", "M M/T" ],
+      "Terios" : [ "R M/T", "R Adventure A/T", "TS A/T", "TS M/T", "TX A/T", "TX M/T" ],
+      "Xenia" : [
+        "1.0 D Deluxe", "1.3 D Deluxe",
+        "1.0 Li Family", "1.3 Li Family", "1.3 Li Family VVT-i",
+        "1.0 Li Deluxe", "1.0 Li Plus", "1.0 Li VVT-i", "1.3 Li Sporty",
+        "1.0 M Family", "1.3 M Family",
+        "1.0 Mi", "1.0 Mi Plus VVT-i",
+        "1.3 Xi", "1.3 Xi Sporty",
+        "1.3 Xi VVT-i", "1.3 Xi VVT-i Deluxe", "1.3 Xi VVT-i A/T",
+        "1.3 R A/T", "1.3 R M/T",
+        "1.3 R Attivo A/T", "1.3 R Attivo M/T"
+      ]
+    }
+  },
+  {
+    "name": "honda",
+    "url": "http://www.autocarprices.com/honda_car_price.php",
+    "taxonomy": {
+      "Accord": [
+        "2.3 VTi A/T", "2.3 VTi M/T", "2.3 VTi-L A/T", "2.3 VTi-L M/T",
+        "2.4 VTi A/T", "2.4 VTi M/T", "2.4 VTi-L A/T", "2.4 VTi-L M/T",
+        "3.0 V6 A/T",
+        "3.5 V6 A/T"
+      ],
+      "Brio": [
+        "1.2 E A/T", "1.2 E M/T", "1.2 S A/T", "1.2 S M/T", "1.2 RS A/T", "1.2 RS M/T",
+        "1.3 E A/T", "1.3 E M/T", "1.3 S A/T", "1.3 S M/T",
+        "Satya A M/T", "Satya E M/T", "Satya S M/T"
+      ],
+      "City": [
+        "E A/T", "E M/T",
+        "RS A/T", "RS M/T",
+        "i-DSi A/T", "i-DSi M/T",
+        "VTEC A/T", "VTEC M/T",
+        "VTi Type Z A/T", "VTi Type Z M/T"
+      ],
+      "Civic": [
+        "1.7 VTi A/T", "1.7 VTi M/T",
+        "1.7 VTi-S A/T", "1.7 VTi-S M/T",
+        "1.8 A/T", "1.8 M/T",
+        "2.0 A/T"
+      ],
+      "CR-V": [ "2.0 A/T", "2.0 M/T", "2.4 A/T", "2.5", "Prestige" ],
+      "CR-Z": [ "1.5 A/T" ],
+      "Freed": [ "E", "S", "S Alpha" ],
+      "Jazz": [
+        "i-DSi A/T", "i-DSi M/T",
+        "VTEC A/T", "VTEC M/T",
+        "RS A/T", "RS M/T",
+        "S A/T", "S M/T"
+      ],
+      "Mobilio": [
+        "E CVT", "E M/T",
+        "S CVT", "S M/T",
+        "RS A/T",
+        "Prestige CVT"
+      ]
+    }
+  },
+  {
+    "name": "hyundai",
+    "url": "http://www.autocarprices.com/hyundai_car_price.php",
+    "taxonomy": {
+      "Avega": [
+        "GL A/T", "GL M/T",
+        "GX A/T", "GX M/T",
+        "SG A/T", "SG M/T",
+        "Sporty M/T"
+      ],
+      "Getz H1": [
+        "CRDi Elegance A/T", "CRDi Elegance A/T Petrol",
+        "CRDi XG A/T",
+        "XG Petrol"
+      ],
+      "Santa Fe": [ "2.2 CRDi", "2.4" ],
+      "Tucson": [ "GLS A/T", "GLS Panoramic", "GLS Tiptronic", "XG Panoramic" ]
+    }
+  },
+  {
+    "name": "mazda",
+    "url": "http://www.autocarprices.com/mazda_car_price.php",
+    "taxonomy": {
+      "2": [
+        "Hatchback R A/T", "Hatchback R M/T",
+        "Hatchback S A/T", "Hatchback S M/T",
+        "Hatchback V A/T", "Hatchback V M/T",
+        "Hatchback RZ A/T",
+        "Sedan R A/T", "Sedan R M/T",
+        "SkyActive R A/T", "SkyActive V A/T"
+      ],
+      "6": [ "2.0 A/T", "2.5 A/T" ],
+      "8": [ "2.3 A/T", "2.5 A/T" ],
+      "Biante": [ "A/T", "SkyActive" ],
+      "CX-5": [ "Sporty", "Touring", "Touring I-Stop" ],
+      "CX-7": [ "2.5 GT", "2.5 R" ],
+      "CX-9": [ "3.7 L" ]
+    }
+  },
+  {
+    "name": "toyota",
+    "url": "http://www.autocarprices.com/toyota_car_price.php",
+    "taxonomy": {
+      "86": [ "TRD" ],
+      "Agya": [ "E A/T", "E M/T", "G A/T", "G M/T", "G TRD A/T", "G TRD M/T" ],
+      "Alphard": [
+        "2.4 ASG", "2.4 AXL", "2.4 G", "2.4 S", "2.4 V",
+        "3.0 MZG", "3.5 V"
+      ],
+      "Avanza": [
+        "1.3 E A/T", "1.3 E M/T", "1.3 E VVT-i A/T", "1.3 E VVT-i M/T",
+        "1.3 G A/T", "1.3 G M/T", "1.3 G VVT-i A/T", "1.3 G VVT-i M/T",
+        "1.5 S A/T", "1.5 S M/T", "1.5 S VVT-i A/T", "1.5 S VVT-i M/T",
+        "Veloz A/T", "Veloz M/T"
+      ],
+      "Camry": [ "2.4 G A/T", "2.4 V A/T", "2.5 V A/T", "3.5 A/T", "Hybrid" ],
+      "Corolla Altis": [ "1.8 G A/T", "1.8 G M/T", "1.8 J A/T", "1.8 V A/T", "2.0 A/T" ],
+      "Etios": [ "Valco E", "Valco G", "Valco J" ],
+      "Fortuner": [
+        "2.5 G Diesel A/T", "2.5 G Diesel M/T", "2.5 G Diesel TRD A/T",
+        "2.7 G 4x2 A/T", "2.7 G 4x2 M/T",
+        "2.7 G Lux 4x2 A/T", "2.7 G Lux 4x2 M/T",
+        "2.7 V 4x4",
+        "2.7 Bensin TRD"
+      ],
+      "Hiace": [ "Commuter 2.5 M/T" ],
+      "Hilux": [ "G", "VNT A/T", "VNT M/T" ],
+      "Kijang Innova Bensin": [
+        "E A/T", "E M/T", "G A/T", "G M/T", "J",
+        "V A/T", "V Luxury A/T", "V M/T"
+      ],
+      "Kijang Innova Diesel": [ "E", "G A/T", "G M/T", "V A/T", "V M/T" ],
+      "Rush": [ "G A/T", "G M/T", "S A/T", "S M/T", "TRD A/T", "TRD M/T" ],
+      "Vellfire": [ "G", "GS", "V", "X", "Z", "ZG" ],
+      "Vios": [ "E A/T", "E M/T", "G A/T", "G M/T", "G TRD A/T", "G TRD M/T" ],
+      "Yaris": [
+        "E A/T", "E M/T",
+        "G A/T", "G M/T",
+        "J A/T", "J M/T",
+        "S A/T", "S M/T",
+        "TRD Sportivo A/T", "TRD Sportivo M/T"
+      ]
+    }
+  }
+]
