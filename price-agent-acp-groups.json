@@ -1,5 +1,48 @@
 [
   {
+    "name": "bmw",
+    "url": "http://www.autocarprices.com/bmw_car_price.php",
+    "taxonomy": {
+      "116i": [ "Sport Line", "Urban Line" ],
+      "320i": [ "E90", "F30 Diesel", "F30 Luxury", "F30 Sport" ],
+      "325i": [ "E90", "F30 Luxury", "F30 Sport" ],
+      "328i": [ "F30" ],
+      "428i": [ "Cabrio" ],
+      "520d": [ "F10 Diesel" ],
+      "520i": [ "E39", "E60", "F10" ],
+      "523i": [ "E60", "F10", "F10 Executive" ],
+      "528i": [ "E60", "F10 Business", "F10 Executive", "F10 Luxury" ],
+      "530i": [ "E60" ],
+      "535i": [ "Sedan", "GT" ],
+      "640Ci": [ "Cabrio", "Coupe" ],
+      "X1": [ "1.8 sDrive", "1.8 sDrive X-Line", "2.0d" ],
+      "X3": [ "2.0 Diesel", "2.0 Petrol" ]
+    }
+  },
+  {
+    "name": "chevrolet",
+    "url": "http://www.autocarprices.com/chevrolet_car_price.php",
+    "taxonomy": {
+      "Aveo": [ "A/T", "M/T" ],
+      "Captiva": [
+        "Diesel A/T", "Diesel M/T", "Diesel AWD VCDi",
+        "Petrol A/T", "Petrol M/T"
+      ],
+      "Colorado": [ "LTX M/T" ],
+      "Cruze": [ "A/T", "M/T" ],
+      "Estate": [ "A/T", "M/T" ],
+      "Kalos": [ "A/T", "M/T" ],
+      "Optra": [ "A/T", "M/T" ],
+      "Orlando": [ "LT" ],
+      "Spark": [ "A/T", "M/T" ],
+      "Spin": [
+        "1.2 Petrol LS M/T", "1.2 Petrol LT M/T", "1.2 Petrol LTZ A/T",
+        "1.3 Diesel LT M/T", "1.3 Diesel LTZ M/T",
+        "1.5 Petrol LTZ A/T", "1.5 Petrol Activ A/T"
+      ]
+    }
+  },
+  {
     "name": "daihatsu",
     "url": "http://www.autocarprices.com/daihatsu_car_price.php",
     "taxonomy": {
@@ -19,6 +62,35 @@
         "1.3 Xi VVT-i", "1.3 Xi VVT-i Deluxe", "1.3 Xi VVT-i A/T",
         "1.3 R A/T", "1.3 R M/T",
         "1.3 R Attivo A/T", "1.3 R Attivo M/T"
+      ]
+    }
+  },
+  {
+    "name": "ford",
+    "url": "http://www.autocarprices.com/ford_car_price.php",
+    "taxonomy": {
+      "Ecosport": [ "Titanium A/T", "Titanium M/T", "Trend A/T" ],
+      "Escape": [ "2.0 XLT M/T", "2.3 A/T", "3.0 4x2", "3.0 4x4" ],
+      "Everest": [
+        "XLT A/T", "XLT M/T",
+        "TDCi A/T", "TDCi M/T", "TDCi 4x4 M/T"
+      ],
+      "Fiesta": [
+        "Sport A/T", "Sport M/T",
+        "Trend A/T", "Trend M/T",
+        "Sedan Sport A/T", "Sedan Trend M/T",
+        "Ecoboost"
+      ],
+      "Focus": [
+        "Hatchback 1.6", "Hatchback 2.0",
+        "Sedan 1.6", "Sedan 2.0",
+        "Sporty A/T", "Sporty M/T",
+        "Comfort", "TDCi"
+      ],
+      "Ranger": [
+        "2.5 TDCi XLT A/T", "2.5 TDCi XLT M/T",
+        "2.9 4x2", "2.9 4x4",
+        "Wildtrack A/T"
       ]
     }
   },
@@ -59,12 +131,14 @@
         "RS A/T", "RS M/T",
         "S A/T", "S M/T"
       ],
+      "HRV": [ "1.5 E", "1.5 S", "1.8 E", "1.8 E Prestige" ],
       "Mobilio": [
         "E CVT", "E M/T",
         "S CVT", "S M/T",
         "RS A/T",
         "Prestige CVT"
-      ]
+      ],
+      "Odyssey": [ "Absolute", "L", "M", "New", "Prestige" ]
     }
   },
   {
@@ -87,6 +161,18 @@
     }
   },
   {
+    "name": "kia",
+    "url": "http://www.autocarprices.com/kia_car_price.php",
+    "taxonomy": {
+      "Carens": [ "A/T", "M/T" ],
+      "Picanto": [ "A/T", "M/T", "OptionPlus A/T", "OptionPlus M/T", "Morning M/T" ],
+      "Pregio": [ "Lohan" ],
+      "Pride": [ "A/T", "M/T" ],
+      "Rio": [ "A/T", "M/T" ],
+      "Sportage": [ "A/T", "M/T", "Platinum A/T" ]
+    }
+  },
+  {
     "name": "mazda",
     "url": "http://www.autocarprices.com/mazda_car_price.php",
     "taxonomy": {
@@ -103,7 +189,140 @@
       "Biante": [ "A/T", "SkyActive" ],
       "CX-5": [ "Sporty", "Touring", "Touring I-Stop" ],
       "CX-7": [ "2.5 GT", "2.5 R" ],
-      "CX-9": [ "3.7 L" ]
+      "CX-9": [ "3.7 L" ],
+      "MX 5": [ "A/T" ],
+      "RX 8": [ "M/T" ],
+      "VX 1": [ "Leather M/T", "R Metro M/T" ]
+    }
+  },
+  {
+    "name": "mercedes-benz",
+    "url": "http://www.autocarprices.com/mercedes_benz_car_price.php",
+    "taxonomy": {
+      "B-Class": [ "200", "200 Urban", "200 Sport" ],
+      "C-Class": [
+        "200 Avantgarde", "200 K",
+        "200 CGI", "200 CGI Classic", "200 CGI Avantgarde",
+        "230 Elegance", "230 Panoramic", "230 Sport",
+        "240 Avantgarde", "240 Elegance", "240 Sport",
+        "250 AMG", "250 CGI", "250 Coupe",
+        "280 Elegance",
+        "300 Avantgarde",
+        "Avantgarde Black Edition"
+      ],
+      "CLA": [ "200 Urban", "200 Sporty" ],
+      "E-Class": [
+        "200 CGI", "200 CGI Avantgarde", "200 CGI Cabriolet", "200 CGI Coupe",
+        "200 Kompressor",
+        "240 Avantgarde",
+        "250 AMG",
+        "250 CGI", "250 CGI Avantgarde", "250 CGI Cabriolet", "250 CGI Coupe",
+        "250 CGI Elegance", "250 CGI Estate",
+        "300 Avantgarde", "300 Elegance",
+        "320 CGI",
+        "350 CGI", "350 CGI Coupe AMG"
+      ],
+      "M-Class": [ "ML 350", "ML 400" ],
+      "S-Class": [
+        "300",
+        "350", "350 CGI", "350 L", "350 AMG",
+        "500", "500 CGI AMG",
+        "600"
+      ]
+    }
+  },
+  {
+    "name": "mitsubishi",
+    "url": "http://www.autocarprices.com/mitsubishi_car_price.php",
+    "taxonomy": {
+      "Grandis": [ "GT", "MiVEC" ],
+      "Lancer": [ "GLX-i", "SE-I", "GT", "EX" ],
+      "Mirage": [ "Exceed CVT", "GLS CVT", "GLX M/T" ],
+      "Outlander": [
+        "GLS", "GLS Reborn",
+        "GLX M/T", "GLX M/T Reborn",
+        "PX", "PX Reborn"
+      ],
+      "Pajero Sport": [
+        "Exceed 4x2 A/T", "Exceed 4x2 M/T",
+        "Exceed 4x4 A/T", "Exceed 4x4 M/T",
+        "Dakar", "Dakar 4x4",
+        "Diesel", "Bensin V6 3.0 MiVEC"
+      ],
+      "Strada": [ "Strada", "Strada Triton" ]
+    }
+  },
+  {
+    "name": "nissan",
+    "url": "http://www.autocarprices.com/nissan_car_price.php",
+    "taxonomy": {
+      "Elgrand": [ "Highway Star" ],
+      "Evalia": [ "S A/T", "SV A/T", "SV M/T", "XV A/T", "XV M/T" ],
+      "Frontier": [ "CRD 2.5 LE A/T", "CRD 2.5 LE M/T", "Diesel 3.0" ],
+      "Grand Livina": [
+        "1.5 SV A/T", "1.5 SV M/T",
+        "1.5 XV A/T", "1.5 XV M/T",
+        "1.5 X-Gear A/T", "1.5 X-Gear M/T",
+        "1.5 XV Ultimate A/T", "1.5 XV Highway Star A/T",
+        "1.8 Ultimate A/T", "1.8 Highway Star A/T"
+      ],
+      "Juke": [ "CVT A/T", "RX" ],
+      "Latio": [ "A/T" ],
+      "Livina": [ "XR A/T", "XR M/T", "X-Gear A/T", "X-Gear M/T" ],
+      "March": [ "A/T", "M/T", "Nismo M/T", "XS A/T" ],
+      "Murano": [ "2.5" ],
+      "Serena": [
+        "CT", "X",
+        "Highway Star", "Highway Star Autech", "Highway Star Panoramic"
+      ],
+      "Teana": [ "XV" ],
+      "X-Trail": [
+        "2.0 A/T", "2.0 M/T",
+        "2.5 A/T", "2.5 XT A/T", "2.5 XT Autech",
+        "Urban Selection"
+      ]
+    }
+  },
+  {
+    "name": "suzuki",
+    "url": "http://www.autocarprices.com/suzuki_car_price.php",
+    "taxonomy": {
+      "Aerio": [ "A/T", "M/T" ],
+      "APV": [
+        "Arena GL",
+        "Arena GX A/T", "Arena GX M/T",
+        "Arena SGX A/T", "Arena SGX M/T",
+        "Arena Luxury A/T", "Arena Luxury M/T",
+        "GE", "GL", "GX A/T", "GX M/T"
+      ],
+      "Ertiga": [
+        "GA M/T",
+        "GL A/T", "GL M/T",
+        "GX A/T", "GX M/T", "GX M/T Double Blower",
+        "GS Dresa A/T"
+      ],
+      "Grand Vitara": [
+        "2.0 JLX A/T", "2.0 JLX M/T",
+        "2.4 A/T", "2.4 M/T"
+      ],
+      "Karimun Wagon R": [
+        "GX M/T", "GX AGS",
+        "GL M/T", "GL AGS",
+        "GS M/T", "GS AGS"
+      ],
+      "Splash": [ "GL A/T", "GL M/T" ],
+      "Swift": [
+        "GL A/T", "GL M/T",
+        "GX A/T", "GX M/T",
+        "ST A/T", "ST M/T",
+        "GT2 A/T", "GT3 A/T",
+        "GTS A/T", "GTS A/T"
+      ],
+      "SX4": [
+        "A/T", "M/T",
+        "X-Over A/T", "X-Over M/T",
+        "X-Road A/T", "X-Road M/T", "X-Road RC1"
+      ]
     }
   },
   {
@@ -140,6 +359,7 @@
       ],
       "Kijang Innova Diesel": [ "E", "G A/T", "G M/T", "V A/T", "V M/T" ],
       "Rush": [ "G A/T", "G M/T", "S A/T", "S M/T", "TRD A/T", "TRD M/T" ],
+      "Sienta": [ "G", "Q", "V" ],
       "Vellfire": [ "G", "GS", "V", "X", "Z", "ZG" ],
       "Vios": [ "E A/T", "E M/T", "G A/T", "G M/T", "G TRD A/T", "G TRD M/T" ],
       "Yaris": [

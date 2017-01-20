@@ -32,7 +32,6 @@ for (var i = 0; i < n; i++ ) {
 
 
 function scrapeOneGroup(groupName, targetUrl, taxonomy) {
-
   // Attempt to load cached results from previous execution.
   const cacheFileName = `acp-group-${groupName}-v1.json`;
   var cacheGroupV1 = null;
@@ -46,7 +45,7 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 
     // Processing stage 2: matching with model taxonomy.
     var groupV2;
-    if (taxonomy) {
+    if (taxonomy && Object.keys(taxonomy).length > 0) {
       var modelSet = FuzzySet();
       Object.keys(taxonomy).forEach(function (model) {
         modelSet.add(model);
@@ -66,7 +65,7 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 
     // Processing stage 3: matching with variant taxonomy.
     var groupV3;
-    if (taxonomy) {
+    if (taxonomy && Object.keys(taxonomy).length > 0) {
       groupV3 = groupV2.map(function (elem) {
         var variantGuess = '';
         if (Array.isArray(taxonomy[elem.model])) {
@@ -133,7 +132,7 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 
     // Processing stage 2: matching with model taxonomy.
     var groupV2;
-    if (taxonomy) {
+    if (taxonomy && Object.keys(taxonomy).length > 0) {
       var modelSet = FuzzySet();
       Object.keys(taxonomy).forEach(function (model) {
         modelSet.add(model);
@@ -153,7 +152,7 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 
     // Processing stage 3: matching with variant taxonomy.
     var groupV3;
-    if (taxonomy) {
+    if (taxonomy && Object.keys(taxonomy).length > 0) {
       groupV3 = groupV2.map(function (elem) {
         var variantSet = FuzzySet();
         taxonomy[elem.model].forEach(function (variant) {
