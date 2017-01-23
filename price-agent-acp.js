@@ -83,8 +83,13 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
       return;
     }
 
+    // Processing stage 0: excluding cars older than 10 years.
+    const groupV0 = groupRaw.filter(function (elem) {
+      return (elem.year > 2006);
+    });
+
     // Processing stage 1: formatting.
-    const groupV1 = groupRaw.map(stageOne);
+    const groupV1 = groupV0.map(stageOne);
     // Dump results to JSON, which may be used as cache by subsequent scrape.
     const stage1FileName = `acp-group-${groupName}-v1.json`;
     fs.writeFile(stage1FileName, JSON.stringify(groupV1, null, 2), null);
