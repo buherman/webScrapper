@@ -44,51 +44,10 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
     console.log(`Using cached results from ${cacheFileName}`);
 
     // Processing stage 2: matching with model taxonomy.
-    var groupV2;
-    if (taxonomy && Object.keys(taxonomy).length > 0) {
-      var modelSet = FuzzySet();
-      Object.keys(taxonomy).forEach(function (model) {
-        modelSet.add(model);
-      });
-      groupV2 = cacheGroupV1.map(function (elem) {
-        const modelMatch = modelSet.get(elem.title);
-        return {
-          title: elem.title,
-          model: (modelMatch ? modelMatch[0][1] : ''),
-          year: elem.year,
-          price: elem.price
-        }
-      });
-    } else {
-      groupV2 = cacheGroupV1;
-    }
+    const groupV2 = stageTwo(cacheGroupV1, taxonomy);
 
     // Processing stage 3: matching with variant taxonomy.
-    var groupV3;
-    if (taxonomy && Object.keys(taxonomy).length > 0) {
-      groupV3 = groupV2.map(function (elem) {
-        var variantGuess = '';
-        if (Array.isArray(taxonomy[elem.model])) {
-          var variantSet = FuzzySet();
-          taxonomy[elem.model].forEach(function (variant) {
-            variantSet.add(elem.model + ' ' + variant);
-          });
-          const variantMatch = variantSet.get(elem.title);
-          if (variantMatch) {
-            variantGuess = variantMatch[0][1];
-          }
-        }
-        return {
-          title: elem.title,
-          model: elem.model,
-          variant: variantGuess,
-          year: elem.year,
-          price: elem.price
-        }
-      });
-    } else {
-      groupV3 = groupV2;
-    }
+    const groupV3 = stageThree(groupV2, taxonomy);
 
     // Save results to a CSV file.
     const fileName = `acp-group-${groupName}.csv`;
@@ -131,45 +90,10 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
     fs.writeFile(stage1FileName, JSON.stringify(groupV1, null, 2), null);
 
     // Processing stage 2: matching with model taxonomy.
-    var groupV2;
-    if (taxonomy && Object.keys(taxonomy).length > 0) {
-      var modelSet = FuzzySet();
-      Object.keys(taxonomy).forEach(function (model) {
-        modelSet.add(model);
-      });
-      groupV2 = groupV1.map(function (elem) {
-        const modelMatch = modelSet.get(elem.title);
-        return {
-          title: elem.title,
-          model: (modelMatch ? modelMatch[0][1] : ''),
-          year: elem.year,
-          price: elem.price
-        }
-      });
-    } else {
-      groupV2 = groupV1;
-    }
+    const groupV2 = stageTwo(groupV1, taxonomy);
 
     // Processing stage 3: matching with variant taxonomy.
-    var groupV3;
-    if (taxonomy && Object.keys(taxonomy).length > 0) {
-      groupV3 = groupV2.map(function (elem) {
-        var variantSet = FuzzySet();
-        taxonomy[elem.model].forEach(function (variant) {
-          variantSet.add(variant);
-        });
-        const variantMatch = variantSet.get(elem.title);
-        return {
-          title: elem.title,
-          model: elem.model,
-          variant: (variantMatch ? variantMatch[0][1] : ''),
-          year: elem.year,
-          price: elem.price
-        }
-      });
-    } else {
-      groupV3 = groupV2;
-    }
+    const groupV3 = stageThree(groupV2, taxonomy);
 
     // Save results to a CSV file.
     const fileName = `acp-group-${groupName}.csv`;
@@ -182,12 +106,57 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 // Processing stage 1: formatting.
 function stageOne(elem) {
   return {
-    // Remove whitespace characters and convert to lower case.
-    title: elem.title.trim().toLowerCase(),
+    // Remove whitespace characters.
+    title: elem.title.trim(),
     year: elem.year,
     // Convert from millions of rupiah to rupiah.
     price: Number(elem.price) * 1000000
   }
+}
+
+
+
+function stageTwo(group, taxonomy) {
+  var modelSet = FuzzySet();
+  Object.keys(taxonomy).forEach(function (model) {
+    modelSet.add(model);
+  });
+  return group.map(function (elem) {
+    const modelMatch = modelSet.get(elem.title);
+    return {
+      title: elem.title,
+      model: (modelMatch ? modelMatch[0][1] : ''),
+      year: elem.year,
+      price: elem.price
+    }
+  });
+}
+
+
+
+function stageThree(group, taxonomy) {
+  return group.map(function (elem) {
+    var variantGuess = '';
+    if (Array.isArray(taxonomy[elem.model])) {
+      var variantSet = FuzzySet();
+      taxonomy[elem.model].forEach(function (variant) {
+        // The search term is "[model] [variant]".
+        variantSet.add(elem.model + ' ' + variant);
+      });
+      const variantMatch = variantSet.get(elem.title);
+      if (variantMatch) {
+        // The `substring` converts "[model] [variant]" to "[variant]".
+        variantGuess = variantMatch[0][1].substring(elem.model.length + 1);
+      }
+    }
+    return {
+      title: elem.title,
+      model: elem.model,
+      variant: variantGuess,
+      year: elem.year,
+      price: elem.price
+    }
+  });
 }
 
 
