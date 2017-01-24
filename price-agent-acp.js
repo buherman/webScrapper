@@ -111,8 +111,8 @@ function scrapeOneGroup(groupName, targetUrl, taxonomy) {
 // Processing stage 1: formatting.
 function stageOne(elem) {
   return {
-    // Remove whitespace characters.
-    title: elem.title.trim(),
+    // Remove leading, trailing, and double whitespace characters.
+    title: elem.title.trim().split('  ').join(' '),
     year: elem.year,
     // Convert from millions of rupiah to rupiah.
     price: Number(elem.price) * 1000000
@@ -127,10 +127,22 @@ function stageTwo(group, taxonomy) {
     modelSet.add(model);
   });
   return group.map(function (elem) {
+    // Determine the model.
     const modelMatch = modelSet.get(elem.title);
+    const modelGuess = (modelMatch ? modelMatch[0][1] : '');
+    // Determine the variant as the text without the model name.
+    var variant = elem.title;
+    if (modelGuess) {
+      /* In case the model consists of more than one words, we process each of
+         them individually. */
+      modelGuess.split(' ').forEach(function (elem) {
+        variant = variant.split(elem + ' ').join('');
+      });
+    }
     return {
       title: elem.title,
-      model: (modelMatch ? modelMatch[0][1] : ''),
+      model: modelGuess,
+      variant: variant,
       year: elem.year,
       price: elem.price
     }
@@ -157,7 +169,8 @@ function stageThree(group, taxonomy) {
     return {
       title: elem.title,
       model: elem.model,
-      variant: variantGuess,
+      variant: elem.variant,
+      variantGuess: variantGuess,
       year: elem.year,
       price: elem.price
     }
@@ -174,6 +187,7 @@ function outputStage(group, fileName) {
     buffer += `"${group[i].price}",`;
     buffer += `"${group[i].model}",`;
     buffer += `"${group[i].variant}",`;
+    buffer += `"${group[i].variantGuess}",`;
     buffer += `"${group[i].year}",`;
     buffer += `"${group[i].title}"\n`;
   }

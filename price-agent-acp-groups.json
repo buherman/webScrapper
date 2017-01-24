@@ -11,12 +11,14 @@
       "520d": [ "F10 Diesel" ],
       "520i": [ "E39", "E60", "F10" ],
       "523i": [ "E60", "F10", "F10 Executive" ],
-      "528i": [ "E60", "F10 Business", "F10 Executive", "F10 Luxury" ],
+      "528i": [ "E60", "F10", "F10 Business", "F10 Executive", "F10 Luxury" ],
       "530i": [ "E60" ],
       "535i": [ "Sedan", "GT" ],
       "640Ci": [ "Cabrio", "Coupe" ],
       "X1": [ "1.8 sDrive", "1.8 sDrive X-Line", "2.0d" ],
-      "X3": [ "2.0 Diesel", "2.0 Petrol" ]
+      "X3": [ "2.0 Diesel", "2.0 Petrol", "3.5 Petrol" ],
+      "X5": [ "3.0 A/T", "3.5i", "xDrive 3.0D" ],
+      "X6": [ "xDrive 3.5D", "xDrive 3.5i" ]
     }
   },
   {
@@ -28,7 +30,7 @@
         "Diesel A/T", "Diesel M/T", "Diesel AWD VCDi",
         "Petrol A/T", "Petrol M/T"
       ],
-      "Colorado": [ "LTX M/T" ],
+      "Colorado": [ "LTZ M/T" ],
       "Cruze": [ "A/T", "M/T" ],
       "Estate": [ "A/T", "M/T" ],
       "Kalos": [ "A/T", "M/T" ],
@@ -77,6 +79,7 @@
       ],
       "Fiesta": [
         "Sport A/T", "Sport M/T",
+        "Style A/T", "Style M/T",
         "Trend A/T", "Trend M/T",
         "Sedan Sport A/T", "Sedan Trend M/T",
         "Ecoboost"
@@ -124,6 +127,7 @@
       ],
       "CR-V": [ "2.0 A/T", "2.0 M/T", "2.4 A/T", "2.5", "Prestige" ],
       "CR-Z": [ "1.5 A/T" ],
+      "Elysion": [ "2.4", "2.4 Prestige" ],
       "Freed": [ "E", "S", "S Alpha" ],
       "Jazz": [
         "i-DSi A/T", "i-DSi M/T",
@@ -138,7 +142,8 @@
         "RS A/T",
         "Prestige CVT"
       ],
-      "Odyssey": [ "Absolute", "L", "M", "New", "Prestige" ]
+      "Odyssey": [ "Absolute", "L", "M", "New", "Prestige" ],
+      "Stream": [ "A/T", "M/T" ]
     }
   },
   {
@@ -149,13 +154,21 @@
         "GL A/T", "GL M/T",
         "GX A/T", "GX M/T",
         "SG A/T", "SG M/T",
+        "XG A/T", "XG M/T",
         "Sporty M/T"
       ],
-      "Getz H1": [
-        "CRDi Elegance A/T", "CRDi Elegance A/T Petrol",
-        "CRDi XG A/T",
-        "XG Petrol"
+      "Getz": [ "LS 3-doors A/T", "M/T", "SG A/T Sunroof" ],
+      "Grand Avega": [ "GL A/T", "GL M/T", "SG A/T" ],
+      "H1": [
+        "CRDi Elegance A/T", "Petrol Elegance A/T",
+        "CRDi XG A/T", "Petrol XG",
+        "GL-s Slider"
       ],
+      "i10": [
+        "GL M/T", "GL-i", "GL-s",
+        "cool M/T", "i-chic M/T", "i-care A/T", "i-care M/T"
+      ],
+      "i20": [ "GL M/T", "GL A/T", "SG A/T", "SG M/T", "CRDi M/T" ],
       "Santa Fe": [ "2.2 CRDi", "2.4" ],
       "Tucson": [ "GLS A/T", "GLS Panoramic", "GLS Tiptronic", "XG Panoramic" ]
     }
@@ -184,11 +197,17 @@
         "Sedan R A/T", "Sedan R M/T",
         "SkyActive R A/T", "SkyActive V A/T"
       ],
+      "3": [
+        "1.6 M/T", "1.6 A/T", "2.0 A/T",
+        "Hatchback R A/T", "Hatchback R M/T",
+        "Sedan R M/T"
+      ],
+
       "6": [ "2.0 A/T", "2.5 A/T" ],
       "8": [ "2.3 A/T", "2.5 A/T" ],
       "Biante": [ "A/T", "SkyActive" ],
       "CX-5": [ "Sporty", "Touring", "Touring I-Stop" ],
-      "CX-7": [ "2.5 GT", "2.5 R" ],
+      "CX-7": [ "2.3 GT", "2.5 GT", "2.5 R" ],
       "CX-9": [ "3.7 L" ],
       "MX 5": [ "A/T" ],
       "RX 8": [ "M/T" ],
@@ -199,6 +218,7 @@
     "name": "mercedes-benz",
     "url": "http://www.autocarprices.com/mercedes_benz_car_price.php",
     "taxonomy": {
+      "A-Class": [ "150", "200 Urban", "250 AMG", "45 AMG" ],
       "B-Class": [ "200", "200 Urban", "200 Sport" ],
       "C-Class": [
         "200 Avantgarde", "200 K",
@@ -295,6 +315,7 @@
         "Arena Luxury A/T", "Arena Luxury M/T",
         "GE", "GL", "GX A/T", "GX M/T"
       ],
+      "Baleno": [ "A/T", "M/T" ],
       "Ertiga": [
         "GA M/T",
         "GL A/T", "GL M/T",
@@ -305,10 +326,11 @@
         "2.0 JLX A/T", "2.0 JLX M/T",
         "2.4 A/T", "2.4 M/T"
       ],
-      "Karimun Wagon R": [
-        "GX M/T", "GX AGS",
-        "GL M/T", "GL AGS",
-        "GS M/T", "GS AGS"
+      "Karimun": [
+        "Wagon R GX M/T", "Wagon R GX AGS",
+        "Wagon R GL M/T", "Wagon R GL AGS",
+        "Wagon R GS M/T", "Wagon R GS AGS",
+        "Estilo"
       ],
       "Splash": [ "GL A/T", "GL M/T" ],
       "Swift": [
@@ -351,6 +373,10 @@
         "2.7 V 4x4",
         "2.7 Bensin TRD"
       ],
+      "Harrier": [
+        "2.4 G Package 4x2 A/T", "2.4 G Package 4x4 A/T",
+        "2.4 L Premium 4x2 A/T"
+      ],
       "Hiace": [ "Commuter 2.5 M/T" ],
       "Hilux": [ "G", "VNT A/T", "VNT M/T" ],
       "Kijang Innova Bensin": [
@@ -358,6 +384,14 @@
         "V A/T", "V Luxury A/T", "V M/T"
       ],
       "Kijang Innova Diesel": [ "E", "G A/T", "G M/T", "V A/T", "V M/T" ],
+      "Land Cruiser": [
+        "200 Diesel ZX 4.6 Petrol", "V8 Diesel",
+        "Prado 2.7", "Prado 2.7 TX"
+      ],
+      "Mark X": [ "2.4 Tiptronic" ],
+      "Nav 1": [ "G A/T", "G A/T Luxury", "V A/T", "V A/T Luxury" ],
+      "Previa": [ "A/T" ],
+      "Prius": [ "1.8 Hybrid" ],
       "Rush": [ "G A/T", "G M/T", "S A/T", "S M/T", "TRD A/T", "TRD M/T" ],
       "Sienta": [ "G", "Q", "V" ],
       "Vellfire": [ "G", "GS", "V", "X", "Z", "ZG" ],
