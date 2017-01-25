@@ -1,9 +1,7 @@
 'use strict';
 
 /*
- * This script scrapes prices of used cars in A@@@C@@P@@@@@.com. Only scrapes
- * Daihatsu, Honda, Hyundai, Mazda, and Toyota at the moment, but this can be
- * easily configured by modifying the `groups` constant.
+ * This script scrapes prices of used cars in A@@@C@@P@@@@@.com.
  *
  * Usage:
  *
@@ -32,6 +30,8 @@ for (var i = 0; i < n; i++ ) {
 
 
 function scrapeOneGroup(groupName, targetUrl, taxonomy) {
+  console.log(groupName);
+
   // Attempt to load cached results from previous execution.
   const cacheFileName = `acp-group-${groupName}-v1.json`;
   var cacheGroupV1 = null;
@@ -121,6 +121,7 @@ function stageOne(elem) {
 
 
 
+// Processing stage 2: matching with model taxonomy.
 function stageTwo(group, taxonomy) {
   var modelSet = FuzzySet();
   Object.keys(taxonomy).forEach(function (model) {
@@ -151,6 +152,7 @@ function stageTwo(group, taxonomy) {
 
 
 
+// Processing stage 3: matching with variant taxonomy.
 function stageThree(group, taxonomy) {
   return group.map(function (elem) {
     var variantGuess = '';

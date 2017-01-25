@@ -7,7 +7,7 @@
  *
  * Usage:
  *
- *     $ node price.js
+ *     $ node price-agent-jlo.js
  *
  * Output will be written to the current directory.
  */
@@ -38,7 +38,7 @@ function scrapeOneGroup(model, transmission) {
   console.log(model, transmission);
 
   // Attempt to load cached results from previous execution.
-  const cacheFileName = `group-${model}-${transmission}-v1.json`;
+  const cacheFileName = `jlo-group-${model}-${transmission}-v1.json`;
   var cacheGroupV1 = null;
   try {
     cacheGroupV1 = jsonfile.readFileSync(cacheFileName);
@@ -52,7 +52,7 @@ function scrapeOneGroup(model, transmission) {
     const groupFinal = cacheGroupV1.map(stageTwo);
 
     // Save results to a CSV file.
-    const fileName = `group-${model}-${transmission}.csv`;
+    const fileName = `jlo-group-${model}-${transmission}.csv`;
     outputStage(groupFinal, fileName);
 
     return;
@@ -80,14 +80,14 @@ function scrapeOneGroup(model, transmission) {
     // Processing stage 1: formatting.
     const groupV1 = groupRaw.map(stageOne);
     // Dump results to JSON, which may be used as cache by subsequent scrape.
-    const stage1FileName = `group-${model}-${transmission}-v1.json`;
+    const stage1FileName = `jlo-group-${model}-${transmission}-v1.json`;
     fs.writeFile(stage1FileName, JSON.stringify(groupV1, null, 2), null);
 
     // Processing stage 2: guessing year.
     const groupFinal = groupV1.map(stageTwo);
 
     // Save results to a CSV file.
-    const fileName = `group-${model}-${transmission}.csv`;
+    const fileName = `jlo-group-${model}-${transmission}.csv`;
     outputStage(groupFinal, fileName);
 
   } // end of `function xRayDone(err, groupRaw)`
