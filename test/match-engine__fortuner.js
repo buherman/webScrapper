@@ -1,6 +1,6 @@
 'use strict';
 
-const MatchEngine = require('../src/matchengine.js');
+const MatchEngine = require('../src/match-engine.js');
 var matchEngine = new MatchEngine();
 
 const variantNames = [
@@ -14,8 +14,8 @@ const variantNames = [
   "2.5 G Diesel A/T Facelift",
   "2.7 G 4x2 A/T",
   "2.7 G 4x2 A/T Facelift",
-  "2.7 G Lux 4x2 A/T",
-  "2.7 G Lux 4x2 A/T Facelift",
+  "2.7 G-Lux 4x2 A/T",
+  "2.7 G-Lux 4x2 A/T Facelift",
   "2.7 V 4x4",
   "2.7 V 4x4 Facelift",
   "2.7 Bensin TRD"
