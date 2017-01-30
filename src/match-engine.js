@@ -5,6 +5,7 @@ const setjs = require('setjs');
 function MatchEngine() {
   this.addedTerms = [];
   this.knownTokens = setjs();
+  this.tokenBlackList = setjs('a/t', 'm/t');
   this.synonyms = {
     "glux": ["luxury", "lux"],
     "4x4": ["4wd"],
@@ -27,7 +28,12 @@ MatchEngine.prototype.addTerm = function(term) {
   plain = plain.split('-').join('');    // Remove dashes.
 
   // Split the term by space to produce tokens.
-  const tokenArray = plain.split(' ');
+  let tokenArray = plain.split(' ');
+
+  // Remove blacklisted token.
+  tokenArray = tokenArray.filter(function (elem) {
+    return !setjs.contains(this.tokenBlackList, elem);
+  }.bind(this));
 
   // Convert the array of tokens to a unique set.
   let tokenSet = setjs();
