@@ -13,6 +13,10 @@ function MatchEngine() {
     "bensin": ["petrol"],
     "trd": ["sportivo"]
   };
+  this.scoring = {
+    hitValue: 1,
+    missValue: -1
+  };
 }
 
 MatchEngine.prototype.addTerm = function(term) {
@@ -65,6 +69,9 @@ MatchEngine.prototype.match = function(string) {
   // Split the string by space to produce array of words.
   const words = plain.split(' ');
 
+  // Keep track of the term with the highest score.
+  var highScore = [];
+
   // Match each word of the string to every added term, iterating one by one.
   let scoreCard = this.addedTerms.map(function (term) {
     /*  `stat` here is a temporary object with two keys: `stat.hits` is an
@@ -86,15 +93,44 @@ MatchEngine.prototype.match = function(string) {
         return stat; // Neither hit nor miss.
       }
     }.bind(this), { hits: [], misses: [] });
-    return {
+
+    // Compute the score of this term.
+    const hitScore = stat.hits.length * this.scoring.hitValue;
+    const missScore = stat.misses.length * this.scoring.missValue;
+    const card = {
       term: term.name,
+      score: hitScore + missScore,
       numToken: setjs.count(term.tokens),
       hits: stat.hits,
       misses: stat.misses
-    };
+    }
+
+    // Is this the term with the highest score so far?
+    if (highScore.length == 0) {
+      highScore.push(card);
+    } else if (highScore[0].score == card.score) {
+      // A tie. Use the least number of tokens as a tiebreaker.
+      if (highScore[0].numToken == card.numToken) {
+        highScore.push(card); // A tie. Append the card to the highscore.
+      } else if (highScore[0].numToken > card.numToken) {
+        highScore.length = 0; // Clears the array.
+        highScore.push(card); // Add the new high score.
+      }
+    } else if (highScore[0].score < card.score) {
+      highScore.length = 0; // Clears the array.
+      highScore.push(card); // Add the new high score.
+    }
+
+    // Keep the matching result in the score card.
+    return card;
   }.bind(this));
 
-  return scoreCard;
+  // Return an array of the terms with the highest score.
+  console.log(highScore);
+  return highScore.map(function (elem) {
+    return elem.term;
+    // TODO Implement verbose mode which returns the whole score card.
+  });
 }
 
 function getSynonyms(word) {
